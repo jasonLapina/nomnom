@@ -1,0 +1,31 @@
+.header {
+  position: fixed;
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 3rem 6rem;
+  color: var(--color-light);
+  font-size: 2rem;
+  a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 6rem;
+      display: inline-block;
+      animation: bounce 0.8s infinite alternate;
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(-4px);
+  }
+}
