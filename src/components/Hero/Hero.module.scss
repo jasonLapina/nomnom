@@ -1,0 +1,71 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 7rem;
+  height: 100vh;
+  width: 100vw;
+  gap: 6rem;
+  // COLOR PRIMARY-DARK, COLOR-PRIMARY-LIGHT
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4),
+      rgba(white, 0.4)
+    ),
+    url(../../assets/hero-bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.textbox {
+  h1 {
+    font-size: 8rem;
+    letter-spacing: 1px;
+    color: var(--color-light);
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+  p {
+    font-size: 2.4rem;
+    color: var(--color-light);
+    font-weight: 600;
+  }
+}
+
+.imgbox {
+  pointer-events: none;
+  position: relative;
+  &:hover img:not(:hover) {
+    transform: scale(0.9);
+  }
+  img {
+    pointer-events: auto;
+    width: 40%;
+    position: absolute;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.6);
+      z-index: 4;
+    }
+  }
+  .burger {
+    right: 0;
+    top: -34rem;
+    z-index: 3;
+  }
+  .sushi {
+    left: 0;
+    bottom: -25rem;
+    z-index: 1;
+  }
+  .customer {
+    left: 26rem;
+    top: -27rem;
+    z-index: 2;
+  }
+}
