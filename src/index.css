@@ -9,7 +9,7 @@
   --color-secondary-light: #da6d7c;
 
   --color-dark: #1c1c1c;
-  --color-grey: #daddd8;
+  --color-gray: #daddd8;
   --color-light: #fafaff;
 }
 
@@ -39,8 +39,5 @@ body {
   line-height: 1.7;
   color: #444;
   overflow-x: hidden;
-}
-
-img {
-  display: block;
+  max-width: 190rem;
 }

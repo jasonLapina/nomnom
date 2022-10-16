@@ -1,12 +1,18 @@
 import { Fragment } from 'react';
 import './App.css';
+import FeaturedIn from './components/FeaturedIn/FeaturedIn';
 import Hero from './components/Hero/Hero';
 import Header from './components/Layout/Header';
+import Meals from './components/Meals/Meals';
 function App() {
   return (
     <Fragment>
       <Header />
-      <Hero />
+      <main>
+        <Hero />
+        <FeaturedIn />
+        <Meals />
+      </main>
     </Fragment>
   );
 }

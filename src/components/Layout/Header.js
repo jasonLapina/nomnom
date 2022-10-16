@@ -11,7 +11,6 @@ const Header = () => {
       <div>deliver where</div>
       <div>deliver when</div>
       <div>
-        1. user 2. favorites
         <HeaderCart />
       </div>
     </header>

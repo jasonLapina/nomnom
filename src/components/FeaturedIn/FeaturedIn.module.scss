@@ -1,0 +1,14 @@
+.section {
+  margin-top: 4rem;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  img {
+    height: 4rem;
+    display: inline;
+    filter: grayscale(1);
+    opacity: 50%;
+  }
+}

@@ -1,13 +1,14 @@
 .header {
   position: fixed;
   box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   align-items: center;
   width: 100%;
   padding: 3rem 6rem;
   color: var(--color-light);
   font-size: 2rem;
+  z-index: 6;
   a {
     text-decoration: none;
     color: var(--color-primary);
@@ -19,13 +20,16 @@
     img {
       width: 6rem;
       display: inline-block;
-      animation: bounce 0.8s infinite alternate;
+      animation: bounce 0.4s infinite alternate;
     }
   }
 }
 
 @keyframes bounce {
   from {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
   }
 }
