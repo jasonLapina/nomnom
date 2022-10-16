@@ -17,6 +17,10 @@ const Cart = (props) => {
             quantity: 1,
           });
         };
+
+        const removeHandler = () => {
+          ctx.removeItem(item);
+        };
         return (
           <li key={i}>
             <h3>{item.name}</h3>
@@ -29,12 +33,14 @@ const Cart = (props) => {
                 <Button onClick={addHandler}>+</Button>
                 <span>x</span> {item.quantity}
                 {item.quantity == 1 && (
-                  <Button className={classes.reduce}>
+                  <Button onClick={removeHandler} className={classes.reduce}>
                     <ion-icon name='trash-outline'></ion-icon>
                   </Button>
                 )}
                 {item.quantity !== 1 && (
-                  <Button className={classes.reduce}>-</Button>
+                  <Button onClick={removeHandler} className={classes.reduce}>
+                    -
+                  </Button>
                 )}
               </p>
             </div>

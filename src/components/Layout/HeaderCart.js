@@ -9,7 +9,7 @@ const HeaderCart = (props) => {
     (previousValue, currentValue) => previousValue + currentValue,
     0
   );
-  console.log(length);
+
   return (
     <button onClick={props.onClick} className={classes.cart}>
       <span>
