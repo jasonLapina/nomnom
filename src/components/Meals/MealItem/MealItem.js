@@ -1,6 +1,10 @@
+import Button from '../../UI/Button';
 import Card from '../../UI/Card';
 import classes from './MealItem.module.scss';
+import { useContext } from 'react';
+import CartContext from '../../../store/cart-context';
 const MealItem = (props) => {
+  const ctx = useContext(CartContext);
   return (
     <Card className={classes.card}>
       <li className={classes.mealItem}>
@@ -25,7 +29,9 @@ const MealItem = (props) => {
               />
             </form>
           </div>
-          <button className={classes.btn}>Add to cart</button>
+          <Button onClick={ctx.addItem} className={classes.btn}>
+            Add to cart
+          </Button>
         </div>
       </li>
     </Card>

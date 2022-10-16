@@ -1,0 +1,17 @@
+.btn {
+  border: none;
+  border-radius: 10rem;
+  font-family: inherit;
+  background-color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-light);
+  width: fit-content;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary-light);
+  }
+}

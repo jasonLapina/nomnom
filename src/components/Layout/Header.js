@@ -2,7 +2,7 @@ import HeaderCart from './HeaderCart';
 import classes from './Header.module.scss';
 import logo from '../../assets/Logo.png';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={classes.header}>
       <a href='/'>
@@ -11,7 +11,7 @@ const Header = () => {
       <div>deliver where</div>
       <div>deliver when</div>
       <div>
-        <HeaderCart />
+        <HeaderCart onClick={props.onShowCart} />
       </div>
     </header>
   );

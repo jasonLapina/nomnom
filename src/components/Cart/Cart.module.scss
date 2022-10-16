@@ -1,0 +1,15 @@
+.cartItems {
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  .close {
+    background-color: white;
+    color: var(--color-gray);
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}

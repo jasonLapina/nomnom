@@ -58,19 +58,5 @@
 }
 
 .btn {
-  border: none;
-  border-radius: 10rem;
-  font-family: inherit;
-  background-color: var(--color-primary);
-  width: 60%;
   margin: 0 auto;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--color-light);
-  padding: 1rem 0;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: var(--color-primary-dark);
-  }
 }

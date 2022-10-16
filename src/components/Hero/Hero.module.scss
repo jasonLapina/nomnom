@@ -3,8 +3,8 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   padding: 0 7rem;
-  height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
   gap: 6rem;
   // COLOR PRIMARY-DARK, COLOR-PRIMARY-LIGHT
   background-image: linear-gradient(
