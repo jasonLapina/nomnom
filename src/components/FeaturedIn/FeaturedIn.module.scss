@@ -1,5 +1,23 @@
 .section {
-  margin-top: 4rem;
+  margin-top: -9rem;
+  p {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    justify-items: center;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.4rem;
+
+    &::after,
+    &::before {
+      display: block;
+      content: '';
+      height: 1px;
+      background-color: currentColor;
+      width: 90%;
+    }
+  }
   ul {
     display: flex;
     justify-content: space-around;
@@ -8,6 +26,6 @@
     height: 4rem;
     display: inline;
     filter: grayscale(1);
-    opacity: 50%;
+    opacity: 65%;
   }
 }

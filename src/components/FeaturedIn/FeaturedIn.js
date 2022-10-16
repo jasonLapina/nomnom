@@ -15,6 +15,7 @@ const FeaturedIn = () => {
   });
   return (
     <section className={classes.section}>
+      <p>as seen on</p>
       <ul>{logoList}</ul>
     </section>
   );
