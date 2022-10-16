@@ -2,9 +2,18 @@
   position: relative;
 }
 
+.amount {
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-between;
+  span {
+    color: var(--color-primary);
+  }
+  border-bottom: 1px solid var(--color-gray);
+}
+
 .actions {
   display: flex;
-  justify-content: flex-end;
   position: absolute;
   gap: 2rem;
   bottom: 2rem;
@@ -18,6 +27,19 @@
     &:hover {
       color: var(--color-primary);
     }
+  }
+}
+
+.quantity {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  button {
+    height: 3rem;
+  }
+  .reduce {
+    background-color: var(--color-gray);
+    color: #999;
   }
 }
 
