@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import CartContext from '../../store/cart-context';
 const Cart = (props) => {
   const ctx = useContext(CartContext);
+
   const cartItems = (
     <ul className={classes.cartItems}>
       {ctx.items.map((item, i) => {
@@ -18,10 +19,13 @@ const Cart = (props) => {
       })}
     </ul>
   );
+
   return (
     <Modal onHideCart={props.onHideCart}>
       {cartItems}
-      <p className={classes.total}>total amount</p>
+      <p className={classes.total}>
+        total amount: <span>PHP {ctx.totalAmount}</span>
+      </p>
       <div className={classes.actions}>
         <Button className={classes.close} onClick={props.onHideCart}>
           Close

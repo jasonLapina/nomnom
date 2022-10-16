@@ -1,15 +1,35 @@
 .cartItems {
+  position: relative;
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
+  position: absolute;
   gap: 2rem;
+  bottom: 2rem;
+  right: 1rem;
+  button {
+    font-size: 3.2rem;
+  }
   .close {
     background-color: white;
     color: var(--color-gray);
     &:hover {
       color: var(--color-primary);
     }
+  }
+}
+
+.total {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  span {
+    color: var(--color-primary);
   }
 }

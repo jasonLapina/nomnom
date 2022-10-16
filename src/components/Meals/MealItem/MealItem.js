@@ -9,8 +9,13 @@ const MealItem = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     if (amountInputRef.current.value == 0) return;
-    ctx.addItem({ name: props.name, price: props.price });
+    ctx.addItem({
+      name: props.name,
+      price: props.price,
+      amount: Number(amountInputRef.current.value),
+    });
   };
   return (
     <Card className={classes.card}>
@@ -30,7 +35,6 @@ const MealItem = (props) => {
                 defaultValue={0}
                 ref={amountInputRef}
                 min={0}
-                max={5}
                 step={1}
                 id='quantity'
                 type='number'
