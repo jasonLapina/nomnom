@@ -4,7 +4,7 @@ import classes from './HeaderCart.module.scss';
 
 const HeaderCart = (props) => {
   const ctx = useContext(CartContext);
-  const cartItems = ctx.items.map((item) => item.amount);
+  const cartItems = ctx.items.map((item) => item.quantity);
   const length = cartItems.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     0

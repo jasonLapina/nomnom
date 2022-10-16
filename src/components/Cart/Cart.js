@@ -5,18 +5,14 @@ import { useContext } from 'react';
 import CartContext from '../../store/cart-context';
 const Cart = (props) => {
   const ctx = useContext(CartContext);
-  //////// ATTEMPT
-
-  //////// ATTEMPT
-
   const cartItems = (
     <ul className={classes.cartItems}>
       {ctx.items.map((item, i) => {
         return (
           <li key={i}>
             <h3>{item.name}</h3>
-            <p>{item.price}</p>
-            <p>x{item.amount}</p>
+            <p className={classes.price}>{item.price}</p>
+            <p className={classes.quantity}>x{item.quantity}</p>
           </li>
         );
       })}

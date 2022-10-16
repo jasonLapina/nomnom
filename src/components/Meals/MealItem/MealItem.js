@@ -4,17 +4,17 @@ import classes from './MealItem.module.scss';
 import { useContext, useRef } from 'react';
 import CartContext from '../../../store/cart-context';
 const MealItem = (props) => {
-  const amountInputRef = useRef();
+  const quantityInputRef = useRef();
   const ctx = useContext(CartContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (amountInputRef.current.value == 0) return;
+    if (quantityInputRef.current.value == 0) return;
     ctx.addItem({
       name: props.name,
       price: props.price,
-      amount: Number(amountInputRef.current.value),
+      quantity: Number(quantityInputRef.current.value),
     });
   };
   return (
@@ -34,7 +34,7 @@ const MealItem = (props) => {
               <input
                 defaultValue={1}
                 placeholder='0'
-                ref={amountInputRef}
+                ref={quantityInputRef}
                 min={0}
                 step={1}
                 id='quantity'
