@@ -1,0 +1,76 @@
+.card {
+  width: 90%;
+}
+
+.mealItem {
+  img {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.details {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.description {
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.cost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  .price {
+    font-size: 3rem;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    span {
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 2rem;
+    }
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    width: 50%;
+    label {
+      font-size: 2rem;
+    }
+    input {
+      font-family: inherit;
+      color: inherit;
+      text-align: center;
+      font-size: 2.4rem;
+      width: 100%;
+      border: none;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 10rem;
+  font-family: inherit;
+  background-color: var(--color-primary);
+  width: 60%;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-light);
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+}

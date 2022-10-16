@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import './App.css';
 import FeaturedIn from './components/FeaturedIn/FeaturedIn';
 import Hero from './components/Hero/Hero';
 import Header from './components/Layout/Header';

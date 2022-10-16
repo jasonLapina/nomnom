@@ -1,13 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 :root {
-  --color-primary: #ffe787;
-  --color-primary-dark: #ccb96c;
-  --color-primary-light: #ffeeab;
-
-  --color-secondary: #d1495b;
-  --color-secondary-dark: #a73a49;
-  --color-secondary-light: #da6d7c;
-
+  --color-primary: #ff7d00;
+  --color-primary-dark: #b35800;
+  --color-primary-light: #ffa44d;
   --color-dark: #1c1c1c;
   --color-gray: #daddd8;
   --color-light: #fafaff;
@@ -38,6 +32,11 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #444;
+  max-width: 200rem;
   overflow-x: hidden;
-  max-width: 190rem;
+  background-color: rgba(255, 238, 171, 0.3);
+}
+
+ul {
+  list-style: none;
 }
