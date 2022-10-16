@@ -31,7 +31,26 @@
     font-size: 2.4rem;
     color: var(--color-light);
     font-weight: 600;
+    margin-bottom: 6rem;
   }
+  img {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 4px;
+    &:not(:first-child) {
+      margin-left: -1rem;
+    }
+  }
+  h3 {
+    margin: 0 4px 0 2rem;
+  }
+}
+
+.customers {
+  display: flex;
+  align-items: center;
 }
 
 .imgbox {

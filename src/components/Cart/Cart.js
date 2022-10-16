@@ -30,8 +30,6 @@ const Cart = (props) => {
                 {item.price}
               </p>
               <p className={classes.quantity}>
-                <Button onClick={addHandler}>+</Button>
-                <span>x</span> {item.quantity}
                 {item.quantity == 1 && (
                   <Button onClick={removeHandler} className={classes.reduce}>
                     <ion-icon name='trash-outline'></ion-icon>
@@ -42,6 +40,8 @@ const Cart = (props) => {
                     -
                   </Button>
                 )}
+                <span>x</span> {item.quantity}
+                <Button onClick={addHandler}>+</Button>
               </p>
             </div>
           </li>

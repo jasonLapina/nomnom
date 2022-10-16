@@ -50,12 +50,17 @@
     }
     input {
       font-family: inherit;
-      color: inherit;
+      color: var(--color-light);
+      padding: 2px 4px;
       text-align: center;
       font-size: 2.4rem;
       width: 100%;
       border: none;
       border-radius: 10rem;
+      background-color: var(--color-primary-dark);
+      &::placeholder {
+        color: inherit;
+      }
     }
   }
 }

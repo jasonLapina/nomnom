@@ -15,8 +15,11 @@ const HeaderCart = (props) => {
     // ENSURES ANIMATION WILL NOT PLAY BEFORE CURRENT ANIMATION ENDS //
     if (cartHasChanged) return;
     setCartHasChanged(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setCartHasChanged(false);
+      return () => {
+        clearTimeout(timer);
+      };
     }, 1000);
   }, [length]);
 

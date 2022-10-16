@@ -32,7 +32,6 @@ const MealItem = (props) => {
             <form onSubmit={submitHandler}>
               <label htmlFor='quantity'>Qty.</label>
               <input
-                defaultValue={1}
                 placeholder='0'
                 ref={quantityInputRef}
                 min={0}
