@@ -19,7 +19,7 @@
 
 .checkout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   justify-items: center;
   max-height: 30rem;
@@ -33,18 +33,23 @@
   }
 
   form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: end;
+    grid-template-rows: repeat(3, min-content);
     gap: 1rem;
   }
 }
 
 .control {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
   align-items: center;
   margin-bottom: 2rem;
-  input {
+  input,
+  select,
+  option {
     font-family: inherit;
     color: var(--color-dark);
     font-weight: 500;
@@ -52,6 +57,10 @@
     letter-spacing: 1px;
     padding: 1rem;
   }
+}
+
+.payment {
+  display: flex;
 }
 
 .actions {
@@ -76,5 +85,10 @@
 }
 
 .total {
-  color: var(--color-primary);
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 2.4rem;
+  &__amount {
+    color: var(--color-primary);
+  }
 }

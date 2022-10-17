@@ -29,17 +29,31 @@ const Checkout = (props) => {
         </div>
         <form>
           <div className={classes.control}>
-            <label htmlFor='name'>Your Name:</label>
+            <label htmlFor='name'>Name:</label>
             <input placeholder='Your Name' type='text' id='name' />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor='contact'>Contact:</label>
+            <input placeholder='+63 ...' type='text' id='contact' />
+          </div>
+          <div className={`${classes.control} ${classes.payment}`}>
+            <label htmlFor='payment'>Pay:</label>
+            <select id='payment'>
+              <option value='gcash'>Gcash</option>
+              <option value='COD'>Cash on delivery</option>
+              <option value='kiss'>Kiss on the forehead</option>
+            </select>
           </div>
           <div className={classes.control}>
             <label htmlFor='note'>Note to rider:</label>
             <input placeholder='Note to rider' type='text' id='note' />
           </div>
 
-          <p>
-            Total amount of{' '}
-            <span className={classes.total}>PHP {ctx.totalAmount}</span>
+          <p className={classes.total}>
+            Total amount:{' '}
+            <span className={classes['total__amount']}>
+              PHP {ctx.totalAmount}
+            </span>
           </p>
           <div className={classes.actions}>
             <Button className={classes.cancel} onClick={props.onCancel}>
