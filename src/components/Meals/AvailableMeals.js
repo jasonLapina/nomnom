@@ -5,21 +5,32 @@ import { useEffect, useState } from 'react';
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
+
   useEffect(() => {
     setIsLoading(true);
     const fetchMeals = async () => {
       const res = await fetch(
         'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json'
       );
-      const data = await res.json();
 
+      if (!res.ok) {
+        throw new Error('Something went wrong 😢');
+      }
+      const data = await res.json();
+      ///////CONVERT JSON OBJECT TO FLATTENED ARRAY FOR BETTER HANDLING
       const arr = Object.entries(data).flat();
+
+      ///////FILTERS OUT THE ID KEY FROM PREVIOUS ARRAY.
       const loadedMeals = arr.filter((entry) => typeof entry !== 'string');
-      console.log(loadedMeals);
       setMeals(loadedMeals);
       setIsLoading(false);
     };
-    fetchMeals();
+
+    fetchMeals().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
   }, []);
   const mealsList = meals.map((meal, i) => {
     return (
@@ -35,10 +46,13 @@ const AvailableMeals = () => {
   });
   return (
     <section className={classes.availableMeals}>
-      {isLoading && (
+      {isLoading && !httpError && (
         <h1 className={classes.loading}>loading available meals...</h1>
       )}
-      {!isLoading && <ul>{mealsList}</ul>}
+      {!isLoading && !httpError && <ul>{mealsList}</ul>}
+      {httpError && !isLoading && (
+        <h1 className={classes.error}>{httpError}</h1>
+      )}
     </section>
   );
 };
