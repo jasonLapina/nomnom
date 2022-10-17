@@ -1,16 +1,23 @@
-import { createContext, useReducer, useState } from 'react';
-import { act } from 'react-dom/test-utils';
+import { createContext, useReducer } from 'react';
 
 const CartContext = createContext({
   items: [],
   totalAmount: 0,
   addItem: () => {},
   removeItem: () => {},
+  checkout: () => {},
 });
 
 const defaultCart = { items: [], totalAmount: 0 };
 
 const cartReducer = (state, action) => {
+  if (action.type === 'CHECKOUT') {
+    return {
+      items: [],
+      totalAmount: 0,
+    };
+  }
+
   if (action.type === 'ADD') {
     let updatedItems;
     const existingItem = state.items.find(
@@ -80,11 +87,16 @@ export const CartProvider = (props) => {
     });
   };
 
+  const checkoutHandler = () => {
+    dispatchCart({ type: 'CHECKOUT' });
+  };
+
   const cart = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
+    checkout: checkoutHandler,
   };
 
   return (

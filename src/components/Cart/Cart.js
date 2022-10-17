@@ -3,11 +3,9 @@ import Modal from '../UI/Modal';
 import Button from '../UI/Button';
 import { useContext, useState } from 'react';
 import CartContext from '../../store/cart-context';
-import Checkout from './Checkout';
-const Cart = (props) => {
-  const [hasOrdered, setHasOrdered] = useState(false);
-  const ctx = useContext(CartContext);
 
+const Cart = (props) => {
+  const ctx = useContext(CartContext);
   const cartItems = (
     <ul className={classes.cartItems}>
       {ctx.items.map((item, i) => {
@@ -19,7 +17,6 @@ const Cart = (props) => {
             quantity: 1,
           });
         };
-
         const removeHandler = () => {
           ctx.removeItem(item);
         };
@@ -51,6 +48,7 @@ const Cart = (props) => {
       })}
     </ul>
   );
+
   return (
     <Modal onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>

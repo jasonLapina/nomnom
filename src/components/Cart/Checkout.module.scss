@@ -14,12 +14,12 @@
 }
 
 .heading {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .checkout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 4fr 6fr;
   justify-content: center;
   justify-items: center;
   max-height: 30rem;
@@ -30,6 +30,9 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    h3 {
+      text-align: center;
+    }
   }
 
   form {
@@ -43,7 +46,6 @@
 
 .control {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 8px;
   align-items: center;
   margin-bottom: 2rem;
@@ -60,13 +62,12 @@
 }
 
 .payment {
-  display: flex;
 }
 
 .actions {
   display: flex;
   gap: 2rem;
-  bottom: 3rem;
+  bottom: 1.5rem;
   right: 3rem;
   position: absolute;
 }
