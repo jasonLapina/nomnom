@@ -52,6 +52,7 @@ const Cart = (props) => {
 
   return (
     <Modal onHideCart={props.onHideCart}>
+      <h2>Your Cart</h2>
       {cartItems}
       {ctx.items.length == 0 && (
         <h2 className={classes.noItems}>Add items to your cart!</h2>
@@ -59,12 +60,12 @@ const Cart = (props) => {
       <p className={classes.total}>
         total amount: <span>PHP {ctx.totalAmount}</span>
       </p>
-      <div className={classes.actions}>
-        <Button className={classes.close} onClick={props.onHideCart}>
-          Close
-        </Button>
-        {ctx.items.length !== 0 && <Button>Order</Button>}
-      </div>
+      <button onClick={props.onHideCart} className={classes.btnClose}>
+        x
+      </button>
+      {ctx.items.length !== 0 && (
+        <Button className={classes.btnOrder}>Order</Button>
+      )}
     </Modal>
   );
 };
