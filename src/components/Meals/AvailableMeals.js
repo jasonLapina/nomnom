@@ -47,6 +47,7 @@ const AvailableMeals = () => {
 
       const arr = Object.entries(data).flat();
       const loadedMeals = arr.filter((entry) => typeof entry !== 'string');
+      console.log(loadedMeals);
       setMeals(loadedMeals);
     };
     fetchMeals();
@@ -56,7 +57,7 @@ const AvailableMeals = () => {
       <MealItem
         key={i}
         id={meal.id}
-        photo={meal.photo}
+        image={meal.image}
         name={meal.name}
         description={meal.description}
         price={meal.price}

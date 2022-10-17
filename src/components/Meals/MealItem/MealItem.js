@@ -20,7 +20,7 @@ const MealItem = (props) => {
   return (
     <Card className={classes.card}>
       <li className={classes.mealItem}>
-        {/* <img className={classes.img} src={props.photo} alt='delicious meal' /> */}
+        <img className={classes.img} src={props.image} alt='delicious meal' />
         <div className={classes.details}>
           <h3>{props.name}</h3>
           <p className={classes.description}>{props.description}</p>
