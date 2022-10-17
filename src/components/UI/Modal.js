@@ -14,10 +14,10 @@ const overlay = document.getElementById('overlays');
 
 const Modal = (props) => {
   return (
-    <Fragment>
+    <div className={props.className}>
       {createPortal(<Backdrop onHideCart={props.onHideCart} />, overlay)}
       {createPortal(<ModalOverlay>{props.children}</ModalOverlay>, overlay)}
-    </Fragment>
+    </div>
   );
 };
 

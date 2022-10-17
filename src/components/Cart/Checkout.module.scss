@@ -1,4 +1,10 @@
+.modal {
+  position: relative;
+}
+
 .checkout {
+  display: grid;
+  grid-template-columns: repeat();
 }
 
 .btnClose {
@@ -13,5 +19,22 @@
   cursor: pointer;
   &:hover {
     color: red;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+  bottom: 3rem;
+  right: 3rem;
+  position: absolute;
+}
+
+.cancel {
+  background-color: var(--color-gray);
+  color: var(--color-dark);
+  &:hover {
+    background-color: var(--color-dark);
+    color: var(--color-gray);
   }
 }
