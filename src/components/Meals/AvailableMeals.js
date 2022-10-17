@@ -4,6 +4,7 @@ import sushi from '../../assets/Meals/sushi.webp';
 import tapsilog from '../../assets/Meals/tapsilog.webp';
 import burger from '../../assets/Meals/burger.webp';
 import salad from '../../assets/Meals/salad.webp';
+import { useEffect, useState } from 'react';
 const DUMMY_MEALS = [
   {
     id: 'm1',
@@ -36,7 +37,21 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal, i) => {
+  const [meals, setMeals] = useState([]);
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const res = await fetch(
+        'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json'
+      );
+      const data = await res.json();
+
+      const arr = Object.entries(data).flat();
+      const loadedMeals = arr.filter((entry) => typeof entry !== 'string');
+      setMeals(loadedMeals);
+    };
+    fetchMeals();
+  }, []);
+  const mealsList = meals.map((meal, i) => {
     return (
       <MealItem
         key={i}
