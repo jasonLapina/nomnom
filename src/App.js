@@ -5,9 +5,11 @@ import Hero from './components/Hero/Hero';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import Checkout from './components/Cart/Checkout';
+
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   const [checkoutIsShown, setCheckoutIsShown] = useState(false);
+
   const showCartHandler = () => {
     setCartIsShown(true);
   };
@@ -38,6 +40,7 @@ function App() {
           onHideCart={hideCartHandler}
         />
       )}
+
       <Header onShowCart={showCartHandler} />
       <main>
         <Hero />
