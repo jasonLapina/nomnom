@@ -10,45 +10,46 @@ const Checkout = (props) => {
   console.log(items);
 
   return (
-    <Modal className={classes.modal} onHideCart={props.onHideCart}>
+    <Modal onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
         x
       </button>
-      <div className={classes.orders}>
-        <h2>Your Order</h2>
-        {items.map((item, i) => {
-          return (
-            <div key={i}>
-              {item.quantity} {item.quantity > 1 ? 'orders' : 'order'} of{' '}
-              <span className={classes.itemName}>{item.name}</span> ={' '}
-              <span className={classes.itemPrice}>
-                {item.price * item.quantity}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-      <form className={classes.checkout}>
-        <div className={classes.control}>
-          <label htmlFor='name'>Your Name</label>
-          <input type='text' id='name' />
+      <h2 className={classes.heading}>Your Order</h2>
+      <div className={classes.checkout}>
+        <div className={classes.orders}>
+          {items.map((item, i) => {
+            return (
+              <div key={i}>
+                {item.quantity} {item.quantity > 1 ? 'orders' : 'order'} of{' '}
+                <span className={classes.itemName}>{item.name}</span> ={' '}
+                <span className={classes.itemPrice}>PHP {item.price}</span>
+              </div>
+            );
+          })}
         </div>
-        <div className={classes.control}>
-          <label htmlFor='note'>Note to rider</label>
-          <input type='text' id='note' />
-        </div>
+        <form>
+          <div className={classes.control}>
+            <label htmlFor='name'>Your Name:</label>
+            <input placeholder='Your Name' type='text' id='name' />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor='note'>Note to rider:</label>
+            <input placeholder='Note to rider' type='text' id='note' />
+          </div>
 
-        <p>
-          Total amount of
-          <span className={classes.total}>{ctx.totalAmount}</span>
-        </p>
-        <div className={classes.actions}>
-          <Button className={classes.cancel} onClick={props.onCancel}>
-            Cancel
-          </Button>
-          <Button>Confirm</Button>
-        </div>
-      </form>
+          <p>
+            Total amount of{' '}
+            <span className={classes.total}>PHP {ctx.totalAmount}</span>
+          </p>
+          <div className={classes.actions}>
+            <Button className={classes.cancel} onClick={props.onCancel}>
+              Cancel
+            </Button>
+
+            <Button>Confirm</Button>
+          </div>
+        </form>
+      </div>
     </Modal>
   );
 };

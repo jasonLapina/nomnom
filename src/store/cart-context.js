@@ -17,16 +17,14 @@ const cartReducer = (state, action) => {
       (item) => item.name == action.item.name
     );
     if (existingItem) {
-      existingItem.price =
-        existingItem.price + action.item.price * action.item.quantity;
+      existingItem.price = existingItem.price + action.item.price;
       existingItem.quantity = existingItem.quantity + action.item.quantity;
       updatedItems = state.items;
     } else {
       updatedItems = state.items.concat(action.item);
     }
 
-    const updatedTotalAmount =
-      state.totalAmount + action.item.price * action.item.quantity;
+    const updatedTotalAmount = state.totalAmount + action.item.price;
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
@@ -66,7 +64,11 @@ export const CartProvider = (props) => {
   const addItemHandler = (item) => {
     dispatchCart({
       type: 'ADD',
-      item: { name: item.name, price: item.price, quantity: item.quantity },
+      item: {
+        name: item.name,
+        price: item.price * item.quantity,
+        quantity: item.quantity,
+      },
     });
   };
   const removeItemHandler = (item) => {
