@@ -1,9 +1,11 @@
 import classes from './Cart.module.scss';
 import Modal from '../UI/Modal';
 import Button from '../UI/Button';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from '../../store/cart-context';
+import Checkout from './Checkout';
 const Cart = (props) => {
+  const [hasOrdered, setHasOrdered] = useState(false);
   const ctx = useContext(CartContext);
 
   const cartItems = (
@@ -49,9 +51,11 @@ const Cart = (props) => {
       })}
     </ul>
   );
-
   return (
     <Modal onHideCart={props.onHideCart}>
+      <button onClick={props.onHideCart} className={classes.btnClose}>
+        x
+      </button>
       <h2>Your Cart</h2>
       {cartItems}
       {ctx.items.length == 0 && (
@@ -60,11 +64,10 @@ const Cart = (props) => {
       <p className={classes.total}>
         total amount: <span>PHP {ctx.totalAmount}</span>
       </p>
-      <button onClick={props.onHideCart} className={classes.btnClose}>
-        x
-      </button>
       {ctx.items.length !== 0 && (
-        <Button className={classes.btnOrder}>Order</Button>
+        <Button onClick={props.onOrder} className={classes.btnOrder}>
+          Order
+        </Button>
       )}
     </Modal>
   );

@@ -1,0 +1,17 @@
+.checkout {
+}
+
+.btnClose {
+  position: absolute;
+  top: 8px;
+  right: 2rem;
+  font-size: 3rem;
+  font-family: inherit;
+  border: none;
+  background-color: var(--color-light);
+  color: var(--color-gray);
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
