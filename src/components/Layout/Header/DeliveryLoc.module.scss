@@ -1,0 +1,16 @@
+.delivery-location-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  input {
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    background-color: var(--color-primary-light);
+    border: none;
+    color: var(--color-light);
+    width: fit-content;
+  }
+}

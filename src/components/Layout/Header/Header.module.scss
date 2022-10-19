@@ -1,11 +1,13 @@
 .header {
   position: fixed;
   box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
-  justify-content: space-around;
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr 1fr min-content;
+  gap: 3rem;
   align-items: center;
+  justify-items: center;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1rem 6rem;
   color: var(--color-light);
   background-color: rgba(0, 0, 0, 0.4);
   font-size: 2rem;
@@ -22,27 +24,6 @@
       width: 6rem;
       display: inline-block;
       animation: bounce 0.4s infinite alternate;
-    }
-  }
-}
-
-.deliveryHours-wrapper {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  .deliveryHours {
-    cursor: pointer;
-    background-color: var(--color-primary);
-    border: none;
-    font-family: inherit;
-    color: inherit;
-
-    font-size: 2rem;
-    letter-spacing: 1px;
-    padding: 1rem 2.4rem;
-    border-radius: 10rem;
-    option {
-      font-family: inherit;
     }
   }
 }

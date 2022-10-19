@@ -50,14 +50,20 @@
   align-items: center;
   margin-bottom: 2rem;
   input,
-  select,
-  option {
+  select {
     font-family: inherit;
     color: var(--color-dark);
     font-weight: 500;
     font-size: 1.8rem;
     letter-spacing: 1px;
     padding: 1rem;
+  }
+  select,
+  option {
+    background-color: var(--color-primary);
+    border: none;
+    color: white;
+    border-radius: 10rem;
   }
 }
 

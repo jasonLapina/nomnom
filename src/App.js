@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import Cart from './components/Cart/Cart';
 import FeaturedIn from './components/FeaturedIn/FeaturedIn';
 import Hero from './components/Hero/Hero';
-import Header from './components/Layout/Header';
+import Header from './components/Layout/Header/Header';
 import Meals from './components/Meals/Meals';
 import Checkout from './components/Cart/Checkout';
 
