@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react';
 const Header = (props) => {
   const curHour = new Date().getHours();
   const [deliverTime, setDeliverTime] = useState('');
+
   const hours = Array.from({ length: 23 - curHour }).map(
     (_, i) => i + curHour + 1
   );
@@ -25,20 +26,32 @@ const Header = (props) => {
       <a href='/'>
         NomNom <img src={logo} alt='nomnom logo' />
       </a>
-      <div>deliver where</div>
-      <select name='deliverTime' id='deliverTime'>
-        <option value='now'>{deliverTime}</option>
-        {hours.map((hour, i) => {
-          return (
-            <option key={i} value={hour}>
-              {curHour >= 12 ? `${hour - 12}PM` : `${hour}AM`}
-            </option>
-          );
-        })}
-      </select>
+      {/* DELIVERY LOCATION MAP FUNCTION */}
 
-      <ion-icon name='person-outline' />
-      <HeaderCart onClick={props.onShowCart} />
+      <div className={classes['deliveryHours-wrapper']}>
+        <span>Deliver when:</span>
+        <select
+          className={classes.deliveryHours}
+          name='deliverTime'
+          id='deliverTime'
+        >
+          <option value='now'>{deliverTime}</option>
+
+          {/* DELIVER HOURS MAP FUNCTION */}
+
+          {hours.map((hour, i) => {
+            return (
+              <option key={i} value={hour}>
+                {curHour >= 12 ? `${hour - 12}PM` : `${hour}AM`}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div>
+        <ion-icon name='person-outline' />
+        <HeaderCart onClick={props.onShowCart} />
+      </div>
     </header>
   );
 };
