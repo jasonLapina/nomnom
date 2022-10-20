@@ -49,8 +49,16 @@ const Cart = (props) => {
       })}
     </ul>
   );
+  const orderHandler = () => {
+    const location = document.getElementById('location');
+    if (location.value.trim().length === 0) {
+      alert('Please enter your location');
+      props.onHideCart();
+    } else {
+      props.onOder();
+    }
+  };
 
-  //  IF CART IS EMPTY
   return (
     <Modal onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
@@ -58,6 +66,7 @@ const Cart = (props) => {
       </button>
       <h2>Your Cart</h2>
       {cartItems}
+      {/* IF CART IS EMPTY */}
       {ctx.items.length == 0 && (
         <h2 className={classes.noItems}>Add items to your cart!</h2>
       )}
@@ -65,7 +74,7 @@ const Cart = (props) => {
         total amount: <span>PHP {ctx.totalAmount}</span>
       </p>
       {ctx.items.length !== 0 && (
-        <Button onClick={props.onOrder} className={classes.btnOrder}>
+        <Button onClick={orderHandler} className={classes.btnOrder}>
           Order
         </Button>
       )}
