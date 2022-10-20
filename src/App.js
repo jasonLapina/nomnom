@@ -5,6 +5,7 @@ import Hero from './components/Hero/Hero';
 import Header from './components/Layout/Header/Header';
 import Meals from './components/Meals/Meals';
 import Checkout from './components/Cart/Checkout';
+import Testimonial from './components/Testimonial/Testimonial';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -46,6 +47,7 @@ function App() {
         <Hero />
         <FeaturedIn />
         <Meals />
+        <Testimonial />
       </main>
     </Fragment>
   );
