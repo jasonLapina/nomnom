@@ -1,7 +1,7 @@
 import classes from './Cart.module.scss';
 import Modal from '../UI/Modal';
 import Button from '../UI/Button';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import CartContext from '../../store/cart-context';
 
 const Cart = (props) => {
@@ -55,12 +55,12 @@ const Cart = (props) => {
       alert('Please enter your location');
       props.onHideCart();
     } else {
-      props.onOder();
+      props.onOrder();
     }
   };
 
   return (
-    <Modal onHideCart={props.onHideCart}>
+    <Modal className={classes.cart} onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
         x
       </button>

@@ -7,14 +7,14 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  return <div className={classes.modal}>{props.children}</div>;
+  return <div className={classes.modalOverlay}>{props.children}</div>;
 };
 
 const overlay = document.getElementById('overlays');
 
 const Modal = (props) => {
   return (
-    <div className={props.className}>
+    <div>
       {createPortal(<Backdrop onHideCart={props.onHideCart} />, overlay)}
       {createPortal(<ModalOverlay>{props.children}</ModalOverlay>, overlay)}
     </div>

@@ -6,8 +6,6 @@ const CartContext = createContext({
   addItem: () => {},
   removeItem: () => {},
   checkout: () => {},
-  time: '',
-  location: '',
 });
 
 const defaultCart = { items: [], totalAmount: 0 };

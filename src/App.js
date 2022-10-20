@@ -47,6 +47,7 @@ function App() {
       <main>
         <Hero />
         <FeaturedIn />
+
         <Meals />
         <Testimonial />
         <Footer />
