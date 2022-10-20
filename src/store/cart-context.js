@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 
 const CartContext = createContext({
   items: [],
@@ -6,6 +6,8 @@ const CartContext = createContext({
   addItem: () => {},
   removeItem: () => {},
   checkout: () => {},
+  time: '',
+  location: '',
 });
 
 const defaultCart = { items: [], totalAmount: 0 };

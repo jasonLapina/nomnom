@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
+import CartContext from '../../../store/cart-context';
 import classes from './DeliveryLoc.module.scss';
 const DeliveryLoc = () => {
   const [address, setAdress] = useState(``);
@@ -18,7 +19,6 @@ const DeliveryLoc = () => {
     e.preventDefault();
     const enteredAddress = addressRef.current.value;
     localStorage.setItem('address', enteredAddress);
-    setAdress('');
   };
 
   return (

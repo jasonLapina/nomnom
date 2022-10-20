@@ -15,6 +15,11 @@ const Checkout = (props) => {
   const ctx = useContext(CartContext);
   const { items, checkout, totalAmount } = ctx;
 
+  // GETTING DELIVERY LOCATION AND TIME
+  const deliveryLocation = document.getElementById('location').value;
+  const deliveryTime = document.getElementById('deliverTime').value;
+  console.log(deliveryLocation);
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -30,6 +35,7 @@ const Checkout = (props) => {
         name: nameRef.current.value,
         payment: paymentRef.current.value,
         note: noteRef.current.value,
+        address: deliveryLocation,
       };
 
       const res = await fetch(
@@ -78,6 +84,11 @@ const Checkout = (props) => {
       <div className={classes.checkout}>
         <div className={classes.orders}>
           <h3>Order summary</h3>
+          <span>
+            Deliver to: {deliveryLocation}{' '}
+            {deliveryTime == 'now' ? 'now' : `at ${deliveryTime}`}
+          </span>
+
           {items.map((item, i) => {
             return (
               <div key={i}>

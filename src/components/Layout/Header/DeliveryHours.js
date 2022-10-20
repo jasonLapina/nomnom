@@ -23,6 +23,7 @@ const DeliveryHours = () => {
     <div className={classes['deliveryHours-wrapper']}>
       <label htmlFor='deliverTime'>Deliver when:</label>
       <select
+        onChange={(e) => setDeliverTime(e.target.value)}
         className={classes.deliveryHours}
         name='deliverTime'
         id='deliverTime'

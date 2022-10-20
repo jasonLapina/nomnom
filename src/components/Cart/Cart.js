@@ -20,6 +20,7 @@ const Cart = (props) => {
         const removeHandler = () => {
           ctx.removeItem(item);
         };
+        // RENDERING CART ITEMS IF NOT EMPTY
         return (
           <li key={i}>
             <h3>{item.name}</h3>
@@ -49,6 +50,7 @@ const Cart = (props) => {
     </ul>
   );
 
+  //  IF CART IS EMPTY
   return (
     <Modal onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
