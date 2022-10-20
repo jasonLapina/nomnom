@@ -86,7 +86,12 @@ const Checkout = (props) => {
           <h3>Order summary</h3>
           <span>
             Deliver to: {deliveryLocation}{' '}
-            {deliveryTime == 'now' ? 'now' : `at ${deliveryTime}`}
+            {deliveryTime == 'now'
+              ? 'now'
+              : `at ${
+                  deliveryTime > 11 ? `${deliveryTime}PM` : `${deliveryTime}AM`
+                }`}
+            .
           </span>
 
           {items.map((item, i) => {

@@ -33,7 +33,9 @@ const DeliveryHours = () => {
           hours.map((hour, i) => {
             return (
               <option key={i} value={hour}>
-                {curHour >= 12 ? `${hour - 12}PM` : `${hour}AM`}
+                {hour > 11
+                  ? `${hour === 12 ? hour : hour - 12}PM`
+                  : `${hour}AM`}
               </option>
             );
           })}
