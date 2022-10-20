@@ -6,6 +6,7 @@ import Header from './components/Layout/Header/Header';
 import Meals from './components/Meals/Meals';
 import Checkout from './components/Cart/Checkout';
 import Testimonial from './components/Testimonial/Testimonial';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -48,6 +49,7 @@ function App() {
         <FeaturedIn />
         <Meals />
         <Testimonial />
+        <Footer />
       </main>
     </Fragment>
   );

@@ -1,4 +1,43 @@
 .footer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1.5fr) repeat(3, 1fr);
+  padding: 12rem 0;
+  max-width: 130rem;
+  margin: 0 auto;
+  column-gap: 6rem;
+  align-items: flex-start;
+  h2 {
+    text-align: left;
+    line-height: 0;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  &-socials {
+    a {
+      color: var(--color-primary-dark);
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 2rem;
+  font-size: 3.2rem;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  .email {
+    color: var(--color-primary-dark);
+  }
 }

@@ -9,7 +9,8 @@ const Header = (props) => {
   return (
     <header className={classes.header}>
       <a href='/'>
-        NomNom <img src={logo} alt='nomnom logo' />
+        NomNom
+        <img src={logo} alt='nomnom logo' />
       </a>
       <DeliveryLoc />
       <DeliveryHours />
