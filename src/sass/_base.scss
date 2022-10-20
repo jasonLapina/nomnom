@@ -1,3 +1,4 @@
+@use './mixins' as *;
 :root {
   --color-primary: #ff7d00;
   --color-primary-dark: #b35800;
@@ -25,6 +26,19 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  @include query(desktopSmall) {
+    font-size: 59.375%;
+  }
+  @include query(tabLand) {
+    font-size: 56.25%;
+  }
+  @include query(tabPort) {
+    font-size: 50%;
+  }
+  @include query(phone) {
+    font-size: 44%;
+  }
 }
 
 body {

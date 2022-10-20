@@ -22,24 +22,25 @@ const MealItem = (props) => {
       <li className={classes.mealItem}>
         <img className={classes.img} src={props.image} alt='delicious meal' />
         <div className={classes.details}>
-          <h3>{props.name}</h3>
-          <p className={classes.description}>{props.description}</p>
+          <div className={classes.heading}>
+            <h3>{props.name}</h3>
+            <p className={classes.description}>{props.description}</p>
+          </div>
           <div className={classes.cost}>
             <p className={classes.price}>
               <span>₱</span>
               {props.price}
             </p>
             <form onSubmit={submitHandler}>
-              <label htmlFor='quantity'>Qty.</label>
               <input
-                placeholder='0'
+                placeholder='Quantity'
                 ref={quantityInputRef}
                 min={0}
                 step={1}
                 id='quantity'
                 type='number'
               />
-              <Button className={classes.btn}>Add to cart</Button>
+              <Button className={classes.btn}>+ cart</Button>
             </form>
           </div>
         </div>
