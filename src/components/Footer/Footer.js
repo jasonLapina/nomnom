@@ -39,7 +39,7 @@ const Footer = () => {
         </p>
       </div>
       <div className={classes.column}>
-        <h5>Contact me</h5>
+        <h5>Contact</h5>
         <address className={classes.contacts}>
           <p>Batong Malake, Los Baños, Laguna</p>
           <p>+639563090839</p>

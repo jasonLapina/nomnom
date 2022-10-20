@@ -25,7 +25,7 @@ const Hero = () => {
           {photos.map((photo, i) => {
             return <img key={i} src={photo} alt='customer' />;
           })}
-          <h3>1 million+</h3> <h4>satisfied customers</h4>
+          <h3>1 million+</h3> <span>satisfied customers</span>
         </div>
       </div>
       <div className={classes.imgbox}>

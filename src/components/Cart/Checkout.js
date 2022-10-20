@@ -1,16 +1,25 @@
 import classes from './Checkout.module.scss';
 import Button from '../UI/Button';
 import Modal from '../UI/Modal';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import CartContext from '../../store/cart-context';
 
 const Checkout = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [checkedOut, setHasCheckedOut] = useState(false);
+  const [userName, setUserName] = useState(' ');
+  const [userContact, setUserContact] = useState('');
   const nameRef = useRef();
   const contactRef = useRef();
   const noteRef = useRef();
   const paymentRef = useRef();
+
+  const nameChangeHandler = () => {
+    setUserName(nameRef.current.value);
+  };
+  const contactChangeHandler = () => {
+    setUserContact(contactRef.current.value);
+  };
 
   const ctx = useContext(CartContext);
   const { items, checkout, totalAmount } = ctx;
@@ -18,7 +27,6 @@ const Checkout = (props) => {
   // GETTING DELIVERY LOCATION AND TIME
   const deliveryLocation = document.getElementById('location').value;
   const deliveryTime = document.getElementById('deliverTime').value;
-  console.log(deliveryLocation);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -33,10 +41,14 @@ const Checkout = (props) => {
         items: items,
         total: totalAmount,
         name: nameRef.current.value,
+        address: deliveryLocation,
+        contact: contactRef.current.value,
         payment: paymentRef.current.value,
         note: noteRef.current.value,
-        address: deliveryLocation,
       };
+      const { name, contact } = checkoutData;
+      localStorage.setItem('name', name);
+      localStorage.setItem('contact', contact);
 
       const res = await fetch(
         'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
@@ -45,6 +57,8 @@ const Checkout = (props) => {
           body: JSON.stringify(checkoutData),
         }
       );
+
+      // localStorage.setItem('user', JSON.stringify(user));
       setIsSubmitting(false);
       setHasCheckedOut(true);
       // CLEARS USER'S CART ITEMS
@@ -52,8 +66,17 @@ const Checkout = (props) => {
       // CLOSES CHECKOUT MODAL
     } else {
       alert('Please enter correct contact no. format');
+      return;
     }
   };
+
+  /// CHECK IF USER HAS ALREADY CHECKED OUT BEFORE. RETREIVE NAME AND CONTACT TO EASE CHECKOUT PROCESS
+  useEffect(() => {
+    setUserName(localStorage.getItem('name'));
+    setUserContact(localStorage.getItem('contact'));
+  }, []);
+
+  ///////LOADING STATE///////////
 
   if (isSubmitting)
     return (
@@ -65,6 +88,7 @@ const Checkout = (props) => {
       </Modal>
     );
 
+  ///////CHECKEDOUT STATE///////////
   if (checkedOut)
     return (
       <Modal onHideCart={props.onHideCart}>
@@ -75,6 +99,7 @@ const Checkout = (props) => {
       </Modal>
     );
 
+  /////////DEFAULT STATE //////////
   return (
     <Modal onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
@@ -85,7 +110,7 @@ const Checkout = (props) => {
         <div className={classes.orders}>
           <h3>Order summary</h3>
           <span>
-            Deliver to: {deliveryLocation}{' '}
+            Deliver to {deliveryLocation}{' '}
             {deliveryTime == 'now'
               ? 'now'
               : `at ${
@@ -108,6 +133,8 @@ const Checkout = (props) => {
           <div className={classes.control}>
             <label htmlFor='name'>Name:</label>
             <input
+              onChange={nameChangeHandler}
+              value={userName}
               required
               ref={nameRef}
               placeholder='Your Name'
@@ -118,10 +145,11 @@ const Checkout = (props) => {
           <div className={classes.control}>
             <label htmlFor='contact'>Contact:</label>
             <input
+              onChange={contactChangeHandler}
+              value={userContact}
               required
               ref={contactRef}
               placeholder='09...'
-              type='text'
               id='contact'
             />
           </div>

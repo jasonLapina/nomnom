@@ -2,10 +2,9 @@
   position: fixed;
   box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
   display: grid;
-  grid-template-columns: min-content 1fr 1fr min-content;
-  gap: 3rem;
+  grid-template-columns: min-content 1fr min-content;
+  gap: 6rem;
   align-items: center;
-  justify-items: center;
   width: 100%;
   padding: 1rem 6rem;
   color: var(--color-light);
@@ -25,6 +24,29 @@
       display: inline-block;
       animation: bounce 0.4s infinite alternate;
     }
+  }
+}
+
+.time-location-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  input {
+    width: 100%;
+  }
+}
+
+.userData-wrapper {
+  display: flex;
+  gap: 3.2rem;
+  button {
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 4rem;
+    color: var(--color-primary);
+    cursor: pointer;
   }
 }
 

@@ -26,9 +26,8 @@ const DeliveryLoc = () => {
       onSubmit={submitHandler}
       className={classes['delivery-location-wrapper']}
     >
-      <label htmlFor='location'>Deliver where:</label>
       <input
-        placeholder='Street, City'
+        placeholder='Deliver where: (Street,City)'
         ref={addressRef}
         onChange={changeHandler}
         value={address}
