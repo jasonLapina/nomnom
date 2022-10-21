@@ -11,7 +11,6 @@ import Footer from './components/Footer/Footer';
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   const [checkoutIsShown, setCheckoutIsShown] = useState(false);
-
   const showCartHandler = () => {
     setCartIsShown(true);
   };
@@ -19,18 +18,15 @@ function App() {
     setCartIsShown(false);
     setCheckoutIsShown(false);
   };
-
   const showCheckoutHandler = (e) => {
     setCheckoutIsShown(true);
     setCartIsShown(false);
   };
-
   const checkoutCancelHandler = (e) => {
     e.preventDefault();
     setCheckoutIsShown(false);
     setCartIsShown(true);
   };
-
   return (
     <Fragment>
       {cartIsShown && (
@@ -42,12 +38,10 @@ function App() {
           onHideCart={hideCartHandler}
         />
       )}
-
       <Header onShowCart={showCartHandler} />
       <main>
         <Hero />
         <FeaturedIn />
-
         <Meals />
         <Testimonial />
         <Footer />
@@ -55,5 +49,4 @@ function App() {
     </Fragment>
   );
 }
-
 export default App;

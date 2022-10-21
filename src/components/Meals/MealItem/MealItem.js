@@ -10,7 +10,7 @@ const MealItem = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (quantityInputRef.current.value == 0) return;
+    if (quantityInputRef.current.value === 0) return;
     ctx.addItem({
       name: props.name,
       price: props.price,

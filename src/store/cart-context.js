@@ -24,7 +24,7 @@ const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
     let updatedItems;
     const existingItem = state.items.find(
-      (item) => item.name == action.item.name
+      (item) => item.name === action.item.name
     );
     if (existingItem) {
       existingItem.price = existingItem.price + action.item.price;

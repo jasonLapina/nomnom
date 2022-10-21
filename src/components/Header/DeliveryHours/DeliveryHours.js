@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import classes from './DeliveryHours.module.scss';
 const DeliveryHours = () => {
   const curHour = new Date().getHours();
+  // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(curHour >= 5 && curHour < 21);
   const [deliverTime, setDeliverTime] = useState('');
 
@@ -14,7 +15,7 @@ const DeliveryHours = () => {
       setDeliverTime(
         `Now: (${
           curHour > 11
-            ? `${curHour == 12 ? curHour : curHour - 12}PM`
+            ? `${curHour === 12 ? curHour : curHour - 12}PM`
             : `${curHour}AM`
         })`
       );

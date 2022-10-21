@@ -1,6 +1,7 @@
 .cart {
   position: relative;
 }
+
 .badge {
   background-color: var(--color-light);
   font-size: 1.5rem;
@@ -9,8 +10,8 @@
   margin-left: 1rem;
   font-weight: bold;
   position: absolute;
-  top: 3px;
-  right: -32%;
+  top: -2px;
+  right: -14px;
 }
 
 .bump {

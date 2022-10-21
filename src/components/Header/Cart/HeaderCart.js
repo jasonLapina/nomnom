@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import CartContext from '../../store/cart-context';
-import classes from './HeaderCart.module.scss';
+import CartContext from '../../../store/cart-context';
+import Tiptool from '../../UI/TipTool';
 
+import classes from './HeaderCart.module.scss';
 const HeaderCart = (props) => {
   const [cartHasChanged, setCartHasChanged] = useState(false);
   const ctx = useContext(CartContext);
@@ -21,17 +22,15 @@ const HeaderCart = (props) => {
         clearTimeout(timer);
       };
     }, 1000);
-  }, [length]);
-
+  }, [cartHasChanged, length]);
   const cartClass = `${classes.cart} ${cartHasChanged ? classes.bump : ''}`;
-
   return (
-    <button onClick={props.onClick} className={cartClass}>
-      <span>
-        <ion-icon name='bag-handle-outline' />
-      </span>
-      <span className={classes.badge}>{length}</span>
-    </button>
+    <Tiptool title='Cart'>
+      <button onClick={props.onClick} className={cartClass}>
+        <ion-icon title='' name='bag-handle-outline' />
+        <span className={classes.badge}>{length}</span>
+      </button>
+    </Tiptool>
   );
 };
 

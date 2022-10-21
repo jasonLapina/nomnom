@@ -1,11 +1,10 @@
-import HeaderCart from './HeaderCart';
+import HeaderCart from './Cart/HeaderCart';
 import classes from './Header.module.scss';
 import logo from '../../assets/Logo.png';
-
-import DeliveryHours from './DeliveryHours';
-import DeliveryLoc from './DeliveryLoc';
-import HeaderUser from './HeaderUser';
-
+import DeliveryHours from './DeliveryHours/DeliveryHours';
+import DeliveryLoc from './DeliveryLocation/DeliveryLoc';
+import HeaderUser from './User/HeaderUser';
+import Orders from './Orders/Orders';
 const Header = (props) => {
   return (
     <header className={classes.header}>
@@ -18,6 +17,7 @@ const Header = (props) => {
         <DeliveryHours />
       </div>
       <div className={classes['userData-wrapper']}>
+        <Orders />
         <HeaderUser />
         <HeaderCart onClick={props.onShowCart} />
       </div>
