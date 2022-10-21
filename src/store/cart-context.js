@@ -4,8 +4,11 @@ const CartContext = createContext({
   items: [],
   totalAmount: 0,
   addItem: () => {},
+  // DECREMENT ITEM QUANTITY BY 1
   removeItem: () => {},
   checkout: () => {},
+  // DELETE ITEM FROM CART
+  deleteItem: () => {},
 });
 
 const defaultCart = { items: [], totalAmount: 0 };
@@ -62,6 +65,14 @@ const cartReducer = (state, action) => {
       };
     }
   }
+  if (action.type === 'DELETE') {
+    const updatedItems = state.items.filter((item) => item.name !== action.id);
+    console.log(updatedItems);
+    return {
+      items: updatedItems,
+      totalAmount: state.totalAmount - action.price,
+    };
+  }
 
   return defaultCart;
 };
@@ -87,6 +98,15 @@ export const CartProvider = (props) => {
     });
   };
 
+  const deleteHandler = (item) => {
+    dispatchCart({
+      type: 'DELETE',
+      price: item.price,
+      quantity: item.quantity,
+      id: item.name,
+    });
+  };
+
   const checkoutHandler = () => {
     dispatchCart({ type: 'CHECKOUT' });
   };
@@ -97,6 +117,7 @@ export const CartProvider = (props) => {
     addItem: addItemHandler,
     removeItem: removeItemHandler,
     checkout: checkoutHandler,
+    deleteItem: deleteHandler,
   };
 
   return (

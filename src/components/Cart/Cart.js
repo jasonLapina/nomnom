@@ -12,29 +12,32 @@ const Cart = (props) => {
         const addHandler = () => {
           ctx.addItem({
             name: item.name,
-            //// DIVIDING BY QUANTITY AVOIDS DOUBLE PRICING ///
             price: item.price / item.quantity,
             quantity: 1,
           });
         };
+        // DECREMENTS ITEM'S QUANTITY BY 1
         const removeHandler = () => {
           ctx.removeItem(item);
         };
-        // RENDERING CART ITEMS IF NOT EMPTY
+        // DELETES ITEM FROM CART
+        const deleteHandler = () => {
+          ctx.deleteItem(item);
+        };
+        /////////  IF CART IS NOT EMPTY /////////
         return (
           <li key={i}>
             <h3>{item.name}</h3>
+
             <div className={classes.amount}>
               <p>
                 <span>₱</span>
                 {item.price}
               </p>
               <p className={classes.quantity}>
-                {item.quantity == 1 && (
-                  <Button onClick={removeHandler} className={classes.reduce}>
-                    <ion-icon name='trash-outline'></ion-icon>
-                  </Button>
-                )}
+                <Button onClick={deleteHandler} className={classes.reduce}>
+                  <ion-icon name='trash-outline'></ion-icon>
+                </Button>
                 {item.quantity !== 1 && (
                   <Button onClick={removeHandler} className={classes.reduce}>
                     -
@@ -59,6 +62,7 @@ const Cart = (props) => {
     }
   };
 
+  /////// IF CART IS EMPTY ///////////
   return (
     <Modal className={classes.cart} onHideCart={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
@@ -66,7 +70,6 @@ const Cart = (props) => {
       </button>
       <h2>Your Cart</h2>
       {cartItems}
-      {/* IF CART IS EMPTY */}
       {ctx.items.length == 0 && (
         <h2 className={classes.noItems}>Add items to your cart!</h2>
       )}
