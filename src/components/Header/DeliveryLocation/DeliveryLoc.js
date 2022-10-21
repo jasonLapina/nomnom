@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 
 import classes from './DeliveryLoc.module.scss';
 const DeliveryLoc = () => {
-  const [address, setAdress] = useState(``);
+  const [address, setAdress] = useState('');
   const addressRef = useRef();
 
   useEffect(() => {
-    const savedAddress = localStorage.getItem('address');
+    const savedAddress = JSON.parse(localStorage.getItem('userData')).address;
     setAdress(savedAddress);
   }, []);
 

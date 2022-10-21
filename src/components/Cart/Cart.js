@@ -68,10 +68,10 @@ const Cart = (props) => {
       <button onClick={props.onHideCart} className={classes.btnClose}>
         x
       </button>
-      <h2>Your Cart</h2>
+      <h2 className={classes.heading}>Your Cart</h2>
       {cartItems}
       {ctx.items.length == 0 && (
-        <h2 className={classes.noItems}>Add items to your cart!</h2>
+        <p className={classes.noItems}>Add items to your cart 😋</p>
       )}
       <p className={classes.total}>
         total amount: <span>PHP {ctx.totalAmount}</span>

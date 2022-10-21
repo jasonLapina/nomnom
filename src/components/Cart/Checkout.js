@@ -13,28 +13,26 @@ const Checkout = (props) => {
   const contactRef = useRef();
   const noteRef = useRef();
   const paymentRef = useRef();
-
   const nameChangeHandler = () => {
     setUserName(nameRef.current.value);
   };
   const contactChangeHandler = () => {
     setUserContact(contactRef.current.value);
   };
-
   const ctx = useContext(CartContext);
   const { items, checkout, totalAmount } = ctx;
-
   // GETTING DELIVERY LOCATION AND TIME
   const deliveryLocation = document.getElementById('location').value;
   const deliveryTime = document.getElementById('deliverTime').value;
-
+  //////CHECKOUT HANDLER
   const submitHandler = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     const enteredContact = contactRef.current.value.trim();
+    ///VALIDATION
     if (
-      enteredContact[0] == 0 &&
-      enteredContact[1] == 9 &&
+      +enteredContact[0] === 0 &&
+      +enteredContact[1] === 9 &&
       enteredContact.length === 11
     ) {
       const checkoutData = {
@@ -42,42 +40,44 @@ const Checkout = (props) => {
         total: totalAmount,
         name: nameRef.current.value,
         address: deliveryLocation,
+        time: deliveryTime,
         contact: contactRef.current.value,
         payment: paymentRef.current.value,
         note: noteRef.current.value,
       };
-      const { name, contact } = checkoutData;
-      localStorage.setItem('name', name);
-      localStorage.setItem('contact', contact);
-
-      const res = await fetch(
+      fetch(
         'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
         {
           method: 'POST',
           body: JSON.stringify(checkoutData),
         }
       );
-
-      // localStorage.setItem('user', JSON.stringify(user));
+      //////// STORING USER DATA
+      const { name, contact, address } = checkoutData;
+      const userData = {
+        name: name,
+        contact: contact,
+        address: address,
+      };
+      localStorage.setItem('userData', JSON.stringify(userData));
       setIsSubmitting(false);
       setHasCheckedOut(true);
       // CLEARS USER'S CART ITEMS
       checkout();
-      // CLOSES CHECKOUT MODAL
+      window.location.reload();
     } else {
       alert('Please enter correct contact no. format');
       return;
     }
   };
-
   /// CHECK IF USER HAS ALREADY CHECKED OUT BEFORE. RETREIVE NAME AND CONTACT TO EASE CHECKOUT PROCESS
   useEffect(() => {
-    setUserName(localStorage.getItem('name'));
-    setUserContact(localStorage.getItem('contact'));
+    const savedUser = JSON.parse(localStorage.getItem('userData'));
+    const { name, contact } = savedUser;
+    setUserName(name);
+    setUserContact(contact);
   }, []);
-
   ///////LOADING STATE///////////
-
   if (isSubmitting)
     return (
       <Modal onHideCart={props.onHideCart}>
@@ -87,7 +87,6 @@ const Checkout = (props) => {
         <h2>Submitting your order...</h2>
       </Modal>
     );
-
   ///////CHECKEDOUT STATE///////////
   if (checkedOut)
     return (
@@ -98,7 +97,6 @@ const Checkout = (props) => {
         <h2>Order submitted!</h2>
       </Modal>
     );
-
   /////////DEFAULT STATE //////////
   return (
     <Modal onHideCart={props.onHideCart}>
@@ -111,14 +109,13 @@ const Checkout = (props) => {
           <h3>Order summary</h3>
           <span>
             Deliver to {deliveryLocation}{' '}
-            {deliveryTime == 'now'
+            {deliveryTime === 'now'
               ? 'now'
               : `at ${
                   deliveryTime > 11 ? `${deliveryTime}PM` : `${deliveryTime}AM`
                 }`}
             .
           </span>
-
           {items.map((item, i) => {
             return (
               <div key={i}>
@@ -171,7 +168,6 @@ const Checkout = (props) => {
               id='note'
             />
           </div>
-
           <p className={classes.total}>
             Total amount:{' '}
             <span className={classes['total__amount']}>
