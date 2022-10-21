@@ -1,10 +1,10 @@
-import HeaderCart from '../HeaderCart';
+import HeaderCart from './HeaderCart';
 import classes from './Header.module.scss';
-import logo from '../../../assets/Logo.png';
+import logo from '../../assets/Logo.png';
 
 import DeliveryHours from './DeliveryHours';
 import DeliveryLoc from './DeliveryLoc';
-import HeaderUser from '../HeaderUser';
+import HeaderUser from './HeaderUser';
 
 const Header = (props) => {
   return (

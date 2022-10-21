@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState, useContext } from 'react';
-import CartContext from '../../../store/cart-context';
+import { useEffect, useRef, useState } from 'react';
+
 import classes from './DeliveryLoc.module.scss';
 const DeliveryLoc = () => {
   const [address, setAdress] = useState(``);
