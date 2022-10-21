@@ -1,15 +1,15 @@
 .footer {
   display: grid;
   grid-template-columns: repeat(2, 1.5fr) repeat(3, 1fr);
-  padding: 12rem 0;
-  max-width: 130rem;
-  margin: 0 auto;
   column-gap: 6rem;
   align-items: flex-start;
   h2 {
     text-align: left;
     line-height: 0;
   }
+  background-color: var(--color-secondary);
+  max-width: 200rem;
+  padding: 8rem 16rem;
 }
 
 .column {

@@ -1,5 +1,6 @@
 .section {
   margin-top: -9rem;
+  max-width: 200rem;
   p {
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
