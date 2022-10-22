@@ -5,15 +5,18 @@ const DeliveryLoc = () => {
   const [address, setAdress] = useState('');
   const addressRef = useRef();
 
-  useEffect(() => {
-    const savedAddress = JSON.parse(localStorage.getItem('userData')).address;
-    setAdress(savedAddress);
-  }, []);
-
   const changeHandler = () => {
     const enteredAddress = addressRef.current.value;
     setAdress(enteredAddress);
   };
+
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem('userData'));
+
+    if (savedData) {
+      setAdress(savedData.address);
+    }
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();

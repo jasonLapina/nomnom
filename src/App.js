@@ -7,16 +7,19 @@ import Meals from './components/Meals/Meals';
 import Checkout from './components/Cart/Checkout';
 import Testimonial from './components/Testimonial/Testimonial';
 import Footer from './components/Footer/Footer';
+import ActiveOrder from './components/Orders/ActiveOrder';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   const [checkoutIsShown, setCheckoutIsShown] = useState(false);
+  const [orderIsShown, setOrderIsShown] = useState(false);
   const showCartHandler = () => {
     setCartIsShown(true);
   };
   const hideCartHandler = () => {
     setCartIsShown(false);
     setCheckoutIsShown(false);
+    setOrderIsShown(false);
   };
   const showCheckoutHandler = (e) => {
     setCheckoutIsShown(true);
@@ -27,8 +30,13 @@ function App() {
     setCheckoutIsShown(false);
     setCartIsShown(true);
   };
+
+  const showOrderHandler = () => {
+    setOrderIsShown(true);
+  };
   return (
     <Fragment>
+      {/* MODALS */}
       {cartIsShown && (
         <Cart onOrder={showCheckoutHandler} onHideCart={hideCartHandler} />
       )}
@@ -38,7 +46,10 @@ function App() {
           onHideCart={hideCartHandler}
         />
       )}
-      <Header onShowCart={showCartHandler} />
+      {orderIsShown && <ActiveOrder onHideCart={hideCartHandler} />}
+
+      {/* END OF MODALS */}
+      <Header onShowOrder={showOrderHandler} onShowCart={showCartHandler} />
       <main>
         <Hero />
         <FeaturedIn />

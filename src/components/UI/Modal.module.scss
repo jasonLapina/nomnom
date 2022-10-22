@@ -13,15 +13,30 @@
   top: 20vh;
   left: 50%;
   transform: translateX(-50%);
+
   width: 60%;
-  max-width: 80%;
   min-height: 20vh;
   max-height: 70vh;
   background-color: white;
-  padding: 3rem 4rem 8rem;
+  padding: 3rem 4rem 6rem;
   border-radius: 1.4rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   overflow: hidden;
+}
+
+.btnClose {
+  position: absolute;
+  top: 8px;
+  right: 2rem;
+  font-size: 3rem;
+  font-family: inherit;
+  border: none;
+  background-color: var(--color-light);
+  color: #666;
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
 }

@@ -3,9 +3,8 @@ import classes from './Header.module.scss';
 import logo from '../../assets/Logo.png';
 import DeliveryHours from './DeliveryHours/DeliveryHours';
 import DeliveryLoc from './DeliveryLocation/DeliveryLoc';
-import HeaderUser from './User/HeaderUser';
-import Orders from './Orders/Orders';
-import { useState } from 'react';
+import HeaderOrder from './HeaderOrder';
+import HeaderUser from './HeaderUser';
 
 const Header = (props) => {
   return (
@@ -19,7 +18,7 @@ const Header = (props) => {
         <DeliveryHours />
       </div>
       <div className={classes['userData-wrapper']}>
-        <Orders />
+        <HeaderOrder onClick={props.onShowOrder} />
         <HeaderUser />
         <HeaderCart onClick={props.onShowCart} />
       </div>

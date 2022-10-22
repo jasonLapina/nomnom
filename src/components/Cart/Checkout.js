@@ -52,19 +52,20 @@ const Checkout = (props) => {
           body: JSON.stringify(checkoutData),
         }
       );
-      //////// STORING USER DATA
-      const { name, contact, address } = checkoutData;
-      const userData = {
-        name: name,
-        contact: contact,
-        address: address,
-      };
+      const { name, address, contact, time } = checkoutData;
+      // STORE USERDATA
+      const userData = { name, address, contact };
       localStorage.setItem('userData', JSON.stringify(userData));
+      const orderData = { address, time };
+      //STORE ORDER DATA TEMPORARILY
+      localStorage.setItem('orderData', JSON.stringify(orderData));
       setIsSubmitting(false);
       setHasCheckedOut(true);
       // CLEARS USER'S CART ITEMS
       checkout();
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } else {
       alert('Please enter correct contact no. format');
       return;
@@ -73,14 +74,16 @@ const Checkout = (props) => {
   /// CHECK IF USER HAS ALREADY CHECKED OUT BEFORE. RETREIVE NAME AND CONTACT TO EASE CHECKOUT PROCESS
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem('userData'));
-    const { name, contact } = savedUser;
-    setUserName(name);
-    setUserContact(contact);
+    if (savedUser) {
+      const { name, contact } = savedUser;
+      setUserName(name);
+      setUserContact(contact);
+    }
   }, []);
   ///////LOADING STATE///////////
   if (isSubmitting)
     return (
-      <Modal onHideCart={props.onHideCart}>
+      <Modal onHideModal={props.onHideCart}>
         <button onClick={props.onHideCart} className={classes.btnClose}>
           x
         </button>
@@ -90,7 +93,7 @@ const Checkout = (props) => {
   ///////CHECKEDOUT STATE///////////
   if (checkedOut)
     return (
-      <Modal onHideCart={props.onHideCart}>
+      <Modal onHideModal={props.onHideCart}>
         <button onClick={props.onHideCart} className={classes.btnClose}>
           x
         </button>
@@ -99,7 +102,7 @@ const Checkout = (props) => {
     );
   /////////DEFAULT STATE //////////
   return (
-    <Modal onHideCart={props.onHideCart}>
+    <Modal onHideModal={props.onHideCart}>
       <button onClick={props.onHideCart} className={classes.btnClose}>
         x
       </button>

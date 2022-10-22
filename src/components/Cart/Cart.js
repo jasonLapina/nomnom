@@ -64,10 +64,7 @@ const Cart = (props) => {
 
   /////// IF CART IS EMPTY ///////////
   return (
-    <Modal className={classes.cart} onHideCart={props.onHideCart}>
-      <button onClick={props.onHideCart} className={classes.btnClose}>
-        x
-      </button>
+    <Modal className={classes.cart} onHideModal={props.onHideCart}>
       <h2 className={classes.heading}>Your Cart</h2>
       {cartItems}
       {ctx.items.length == 0 && (

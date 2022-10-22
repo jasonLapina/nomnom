@@ -1,4 +1,4 @@
-import Tiptool from '../../UI/TipTool';
+import Tiptool from '../UI/TipTool';
 
 const HeaderUser = (props) => {
   return (

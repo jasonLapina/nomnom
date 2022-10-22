@@ -67,7 +67,6 @@ const cartReducer = (state, action) => {
   }
   if (action.type === 'DELETE') {
     const updatedItems = state.items.filter((item) => item.name !== action.id);
-    console.log(updatedItems);
     return {
       items: updatedItems,
       totalAmount: state.totalAmount - action.price,

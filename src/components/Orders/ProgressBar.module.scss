@@ -1,0 +1,39 @@
+.progress {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  &::before {
+    content: '';
+    height: 4px;
+    background-color: var(--color-gray);
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  &Bar {
+    position: absolute;
+    background-color: var(--color-primary);
+    height: 4px;
+    z-index: -1;
+    transition: width 0.8s ease;
+  }
+}
+
+.step {
+  font-size: 3.2rem;
+  background-color: var(--color-primary-light);
+  line-height: 0;
+  padding: 1rem;
+  border-radius: 50%;
+  color: var(--color-gray);
+  position: relative;
+  border: solid 2px var(--color-primary-light);
+}
+
+.active {
+  background-color: var(--color-primary);
+  border: solid 2px var(--color-primary);
+}
