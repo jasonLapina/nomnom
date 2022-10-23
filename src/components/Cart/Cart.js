@@ -67,7 +67,7 @@ const Cart = (props) => {
     <Modal className={classes.cart} onHideModal={props.onHideCart}>
       <h2 className={classes.heading}>Your Cart</h2>
       {cartItems}
-      {ctx.items.length == 0 && (
+      {ctx.items.length === 0 && (
         <p className={classes.noItems}>Add items to your cart 😋</p>
       )}
       <p className={classes.total}>

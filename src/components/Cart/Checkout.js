@@ -56,7 +56,7 @@ const Checkout = (props) => {
       // STORE USERDATA
       const userData = { name, address, contact };
       localStorage.setItem('userData', JSON.stringify(userData));
-      const orderData = { address, time };
+      const orderData = { address, time, orderItems: items };
       //STORE ORDER DATA TEMPORARILY
       localStorage.setItem('orderData', JSON.stringify(orderData));
       setIsSubmitting(false);
