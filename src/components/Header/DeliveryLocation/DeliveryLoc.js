@@ -18,17 +18,8 @@ const DeliveryLoc = () => {
     }
   }, []);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const enteredAddress = addressRef.current.value;
-    localStorage.setItem('address', enteredAddress);
-  };
-
   return (
-    <form
-      onSubmit={submitHandler}
-      className={classes['delivery-location-wrapper']}
-    >
+    <form className={classes['delivery-location-wrapper']}>
       <input
         placeholder='Deliver where: (Street,City)'
         ref={addressRef}

@@ -28,7 +28,7 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   @include query(desktopSmall) {
-    font-size: 59.375%;
+    font-size: 58%;
   }
   @include query(tabLand) {
     font-size: 56.25%;
@@ -47,7 +47,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #666;
-  min-width: 60rem;
   overflow-x: hidden;
 }
 

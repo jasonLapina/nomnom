@@ -23,7 +23,6 @@ const Hero = () => {
             quibusdam voluptatum, adipisci ipsa voluptatibus ipsum consequuntur.
           </p>
         </div>
-
         <Button className={classes.cta}>
           <a href='#meals'>See Available Meals &darr;</a>
         </Button>
@@ -31,7 +30,9 @@ const Hero = () => {
           {photos.map((photo, i) => {
             return <img key={i} src={photo} alt='customer' />;
           })}
-          <h3>1 million+</h3> <span>satisfied customers</span>
+          <div className={classes['customers-text']}>
+            <h3>1 million+</h3> <span>satisfied customers</span>
+          </div>
         </div>
       </div>
       <div className={classes.imgbox}>

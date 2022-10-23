@@ -1,12 +1,15 @@
 .card {
   width: 90%;
   position: relative;
+  display: grid;
 }
 
 .mealItem {
   img {
     width: 100%;
+    aspect-ratio: 1.5/1;
     position: relative;
+    object-fit: cover;
   }
   padding-bottom: 5.6rem;
 }
@@ -15,7 +18,8 @@
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .description {
@@ -58,9 +62,6 @@
       border: none;
       border-radius: 10rem;
       background-color: var(--color-primary-dark);
-      &::placeholder {
-        color: inherit;
-      }
     }
   }
 }
@@ -70,5 +71,5 @@
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
+  font-size: 2.4rem;
 }

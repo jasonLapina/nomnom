@@ -33,14 +33,16 @@ const MealItem = (props) => {
             </p>
             <form onSubmit={submitHandler}>
               <input
-                placeholder='Quantity'
+                defaultValue={1}
                 ref={quantityInputRef}
                 min={0}
                 step={1}
                 id='quantity'
                 type='number'
               />
-              <Button className={classes.btn}>+ cart</Button>
+              <Button className={classes.btn}>
+                +<ion-icon name='cart-outline' />
+              </Button>
             </form>
           </div>
         </div>

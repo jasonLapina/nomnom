@@ -1,4 +1,3 @@
-import { Fragment, useState } from 'react';
 import classes from './ProgressBar.module.scss';
 const ProgressBar = (props) => {
   return (

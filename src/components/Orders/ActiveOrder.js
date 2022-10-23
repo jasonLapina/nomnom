@@ -24,9 +24,7 @@ const ActiveOrder = (props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (orderStatus === 4) {
-        setTimeout(() => {
-          localStorage.removeItem('orderData');
-        }, 5000);
+        localStorage.removeItem('orderData');
         return;
       }
       if (orderStatus !== 0) {
