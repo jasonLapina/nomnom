@@ -1,15 +1,17 @@
 .footer {
-  display: grid;
-  grid-template-columns: repeat(2, 1.5fr) repeat(3, 1fr);
   column-gap: 6rem;
   align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, max-content));
+
+  justify-content: center;
   h2 {
     text-align: left;
-    line-height: 0;
   }
   background-color: var(--color-secondary);
+  padding: 3rem 6rem;
   max-width: 200rem;
-  padding: 8rem 16rem;
+  margin: 0 auto;
 }
 
 .column {

@@ -1,20 +1,16 @@
-.deliveryHours-wrapper {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  .deliveryHours {
-    cursor: pointer;
-    background-color: var(--color-primary-light);
-    border: none;
+.deliveryHours {
+  cursor: pointer;
+  background-color: var(--color-primary-light);
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  max-width: fit-content;
+  min-width: 13.2rem;
+  option {
     font-family: inherit;
-    color: inherit;
-    font-size: 2rem;
-    letter-spacing: 1px;
-    padding: 1rem 2rem;
-    border-radius: 10rem;
-
-    option {
-      font-family: inherit;
-    }
   }
 }

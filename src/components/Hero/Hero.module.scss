@@ -1,9 +1,6 @@
+@use '../../sass/mixins' as *;
+
 .section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 6rem;
-  // COLOR PRIMARY-DARK, COLOR-PRIMARY-LIGHT
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.4),
@@ -15,63 +12,90 @@
   background-size: cover;
   background-position: top;
   max-width: 200rem;
-  margin: 0;
-  padding: 15rem 5.4rem 20rem;
+  margin: 0 auto;
+  padding: 15rem 4rem 0;
+  @include query(tabLand) {
+    padding: 15rem 3rem 0;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 6rem;
+  @include query(tabLand) {
+    gap: 4rem;
+  }
+  @include query(tabPort) {
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
 }
 
 .heading {
+  grid-column: span 2;
   h1 {
     font-size: clamp(2rem, 5rem, 3.5vw);
     letter-spacing: 1px;
     color: var(--color-light);
     font-weight: 700;
-    margin-bottom: 3.2rem;
+    margin-bottom: 1rem;
   }
   p {
     font-size: clamp(1rem, 2.4rem, 3.2rem);
-    font-size: 2.4rem;
     color: var(--color-light);
     font-weight: 600;
   }
 }
 
 .cta {
+  &-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin: 3.2rem 0;
+    @include query(tabPort) {
+      justify-content: center;
+    }
+  }
   a {
     text-decoration: none;
     color: var(--color-light);
   }
-}
-
-.textbox {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3.2rem;
-  height: 90%;
-  img {
-    width: 6.4rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.4);
-    padding: 4px;
-    &:not(:first-child) {
-      margin-left: -1rem;
+  &--alt {
+    a {
+      color: var(--color-primary);
     }
-  }
-  h3 {
-    margin: 0 4px 0 2rem;
-  }
-  span {
-    font-size: 2rem;
+    background-color: var(--color-light);
   }
 }
 
 .customers {
   display: flex;
   align-items: center;
-  &-text {
-    margin-left: 2rem;
+  p {
+    margin-left: 1.6rem;
+    font-size: 120%;
+    color: var(--color-light);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  span {
+    color: var(--color-primary);
+  }
+  img {
+    width: max(6%, 5rem);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: solid 4px rgba(255, 255, 255, 0.2);
+    &:not(:first-child) {
+      margin-left: -1.2rem;
+    }
+  }
+  @include query(tabPort) {
+    justify-content: center;
   }
 }
 

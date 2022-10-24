@@ -1,18 +1,20 @@
+@use '../../sass/mixins' as *;
+
 .sectionTestimonials {
   border: solid 2px var(--color-secondary);
 }
-
 .grid-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem;
+  @include query(tabLand) {
+    grid-template-columns: 1fr;
+  }
 }
-
 .heading {
   grid-column: 1/-1;
   justify-self: center;
 }
-
 .testimonials {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -23,7 +25,6 @@
   column-gap: 8rem;
   row-gap: 4rem;
   font-size: 2rem;
-
   img {
     width: 6.4rem;
     height: 6.4rem;
@@ -35,10 +36,9 @@
     gap: 2.4rem;
   }
 }
-
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   gap: 1.6rem;
   padding: 1.6rem;
   figure {

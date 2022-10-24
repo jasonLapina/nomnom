@@ -1,6 +1,5 @@
 import { Fragment, useState } from 'react';
 import Cart from './components/Cart/Cart';
-import FeaturedIn from './components/FeaturedIn/FeaturedIn';
 import Hero from './components/Hero/Hero';
 import Header from './components/Header/Header';
 import Meals from './components/Meals/Meals';
@@ -52,7 +51,7 @@ function App() {
       <Header onShowOrder={showOrderHandler} onShowCart={showCartHandler} />
       <main>
         <Hero />
-        <FeaturedIn />
+
         <Meals />
         <Testimonial />
         <Footer />

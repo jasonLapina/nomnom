@@ -1,13 +1,15 @@
+@use '../../sass/mixins' as *;
 .header {
   position: fixed;
-  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
+  width: 100%;
   display: grid;
   grid-template-columns: min-content 1fr min-content;
+  justify-content: space-between;
   gap: 6rem;
   align-items: center;
-  width: 100%;
   padding: 1rem 6rem;
   color: var(--color-light);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
   background-color: rgba(0, 0, 0, 0.4);
   font-size: 2rem;
   z-index: 6;
@@ -25,15 +27,23 @@
       animation: bounce 0.4s infinite alternate;
     }
   }
+  @include query(tabPort) {
+    padding: 1rem 3rem;
+    a {
+      img {
+        width: 3.2rem;
+      }
+    }
+  }
 }
 
 .time-location-wrapper {
-  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  grid-template-columns: 7fr 3fr;
+  gap: 2.4rem;
   input {
     width: 100%;
+    min-width: 20rem;
   }
 }
 

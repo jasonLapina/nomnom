@@ -1,12 +1,9 @@
 import classes from './Footer.module.scss';
-import logo from '../../assets/Logo.png';
 const Footer = () => {
   return (
-    <footer className={classes.footer}>
+    <footer id='footer' className={classes.footer}>
       <div className={`${classes.column} ${classes['column-socials']}`}>
-        <h2>
-          NomNom<ion-icon name='fast-food-outline'></ion-icon>
-        </h2>
+        <h2>NomNom</h2>
         <div className={classes.socials}>
           <a
             href='https://github.com/jasonLapina'
