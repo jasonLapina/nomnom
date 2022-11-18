@@ -164,9 +164,9 @@ const Checkout = (props) => {
           </div>
           <div className={classes.control}>
             <label htmlFor='note'>Note to rider:</label>
-            <input
+            <textarea
               ref={noteRef}
-              placeholder='Note to rider'
+              placeholder='Optional'
               type='text'
               id='note'
             />

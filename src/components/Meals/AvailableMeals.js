@@ -11,7 +11,7 @@ const AvailableMeals = () => {
     setIsLoading(true);
     const fetchMeals = async () => {
       const res = await fetch(
-        'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json'
+        'https://nomnom2-1e4d7-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json'
       );
 
       if (!res.ok) {
@@ -20,7 +20,7 @@ const AvailableMeals = () => {
       const data = await res.json();
       ///////CONVERT JSON OBJECT TO FLATTENED ARRAY FOR BETTER HANDLING
       const arr = Object.entries(data).flat();
-
+      console.log(arr);
       ///////FILTERS OUT THE ID KEY FROM PREVIOUS ARRAY.
       const loadedMeals = arr.filter((entry) => typeof entry !== 'string');
       setMeals(loadedMeals);
