@@ -28,48 +28,37 @@ const Checkout = (props) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const enteredContact = contactRef.current.value.trim();
-    ///VALIDATION
-    if (
-      +enteredContact[0] === 0 &&
-      +enteredContact[1] === 9 &&
-      enteredContact.length === 11
-    ) {
-      const checkoutData = {
-        items: items,
-        total: totalAmount,
-        name: nameRef.current.value,
-        address: deliveryLocation,
-        time: deliveryTime,
-        contact: contactRef.current.value,
-        payment: paymentRef.current.value,
-        note: noteRef.current.value,
-      };
-      fetch(
-        'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
-        {
-          method: 'POST',
-          body: JSON.stringify(checkoutData),
-        }
-      );
-      const { name, address, contact, time } = checkoutData;
-      // STORE USERDATA
-      const userData = { name, address, contact };
-      localStorage.setItem('userData', JSON.stringify(userData));
-      const orderData = { address, time, orderItems: items };
-      //STORE ORDER DATA TEMPORARILY
-      localStorage.setItem('orderData', JSON.stringify(orderData));
-      setIsSubmitting(false);
-      setHasCheckedOut(true);
-      // CLEARS USER'S CART ITEMS
-      checkout();
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    } else {
-      alert('Please enter correct contact no. format');
-      return;
-    }
+    const checkoutData = {
+      items: items,
+      total: totalAmount,
+      name: nameRef.current.value,
+      address: deliveryLocation,
+      time: deliveryTime,
+      contact: contactRef.current.value,
+      payment: paymentRef.current.value,
+      note: noteRef.current.value,
+    };
+    fetch(
+      'https://nomnom-b7132-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(checkoutData),
+      }
+    );
+    const { name, address, contact, time } = checkoutData;
+    // STORE USERDATA
+    const userData = { name, address, contact };
+    localStorage.setItem('userData', JSON.stringify(userData));
+    const orderData = { address, time, orderItems: items };
+    //STORE ORDER DATA TEMPORARILY
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+    setIsSubmitting(false);
+    setHasCheckedOut(true);
+    // CLEARS USER'S CART ITEMS
+    checkout();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
   /// CHECK IF USER HAS ALREADY CHECKED OUT BEFORE. RETREIVE NAME AND CONTACT TO EASE CHECKOUT PROCESS
   useEffect(() => {
