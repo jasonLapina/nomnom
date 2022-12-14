@@ -140,6 +140,8 @@ const Checkout = (props) => {
               ref={contactRef}
               placeholder='09...'
               id='contact'
+              type='text'
+              inputMode='numeric'
             />
           </div>
           <div className={`${classes.control} ${classes.payment}`}>

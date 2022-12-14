@@ -20,7 +20,6 @@ const AvailableMeals = () => {
       const data = await res.json();
       ///////CONVERT JSON OBJECT TO FLATTENED ARRAY FOR BETTER HANDLING
       const arr = Object.entries(data).flat();
-      console.log(arr);
       ///////FILTERS OUT THE ID KEY FROM PREVIOUS ARRAY.
       const loadedMeals = arr.filter((entry) => typeof entry !== 'string');
       setMeals(loadedMeals);
